@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Flashcard App - Learn French Vocabulary</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🇫🇷 French Flashcard App</h1>
+                <p>Learn French vocabulary with spaced repetition</p>
+            </div>
+            <div class="header-stats">
+                <div class="stat">
+                    <span class="stat-label">Cards Learned</span>
+                    <span class="stat-value" id="cardsLearned">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Accuracy</span>
+                    <span class="stat-value" id="accuracy">0%</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Menu Section -->
+            <section id="menu" class="menu-section">
+                <h2>Get Started</h2>
+                
+                <!-- Category Selection -->
+                <div class="selection-group">
+                    <label for="categorySelect">Choose a Category:</label>
+                    <select id="categorySelect">
+                        <option value="">-- Select a Category --</option>
+                        <option value="animals">🐾 Animals</option>
+                        <option value="food">🍽️ Food</option>
+                        <option value="verbs">🎯 Verbs</option>
+                        <option value="numbers">🔢 Numbers</option>
+                        <option value="phrases">💬 Phrases</option>
+                    </select>
+                </div>
+
+                <!-- Difficulty Selection -->
+                <div class="selection-group">
+                    <label for="difficultySelect">Choose Difficulty:</label>
+                    <select id="difficultySelect">
+                        <option value="">-- Select Difficulty --</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+
+                <!-- Start Button -->
+                <button id="startBtn" class="btn btn-primary">Start Learning</button>
+            </section>
+
+            <!-- Flashcard Section -->
+            <section id="flashcardSection" class="flashcard-section hidden">
+                <div class="flashcard-header">
+                    <h2 id="categoryTitle">Category: Animals</h2>
+                    <button id="backBtn" class="btn btn-secondary">Back to Menu</button>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">Card 1 of 10</p>
+                </div>
+
+                <!-- Flashcard -->
+                <div class="flashcard-container">
+                    <div class="flashcard" id="flashcard">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <p class="flashcard-text" id="frenchText">Bonjour</p>
+                                <p class="flashcard-hint">Click to reveal English</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p class="flashcard-text" id="englishText">Hello</p>
+                                <p class="flashcard-hint">French ← → English</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button id="gotItBtn" class="btn btn-success">✓ Got It</button>
+                    <button id="needHelpBtn" class="btn btn-danger">✗ Need Help</button>
+                    <button id="skipBtn" class="btn btn-warning">⊕ Skip</button>
+                </div>
+
+                <!-- Stats -->
+                <div class="session-stats">
+                    <div class="mini-stat">
+                        <span>Correct: <strong id="sessionCorrect">0</strong></span>
+                    </div>
+                    <div class="mini-stat">
+                        <span>Incorrect: <strong id="sessionIncorrect">0</strong></span>
+                    </div>
+                    <div class="mini-stat">
+                        <span>Accuracy: <strong id="sessionAccuracy">0%</strong></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section id="statsSection" class="stats-section hidden">
+                <h2>Your Learning Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Cards Learned</h3>
+                        <p class="stat-number" id="totalLearned">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Overall Accuracy</h3>
+                        <p class="stat-number" id="overallAccuracy">0%</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Sessions Completed</h3>
+                        <p class="stat-number" id="sessionCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Time Spent</h3>
+                        <p class="stat-number" id="timeSpent">0 min</p>
+                    </div>
+                </div>
+                <button id="resetStatsBtn" class="btn btn-danger">Reset Statistics</button>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with ❤️ for French learners | <a href="#">GitHub</a> | <a href="#">Report Bug</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
